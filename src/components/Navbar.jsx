@@ -4,6 +4,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import icon from "../images/cryptocurrency.png";
 
+const items = [
+    {
+        label: (<Link to="/">Home</Link>),
+        key: 'home',
+        icon: <HomeOutlined />,
+    },
+    {
+        label: (<Link to="/cryptocurrencies">Cryptocurrencies</Link>),
+        key: 'coins',
+        icon: <FundOutlined />,
+    },
+    {
+        label: (<Link to="/exchanges">Exchanges</Link>),
+        key: 'exchange',
+        icon: <MoneyCollectOutlined />,
+    },
+    {
+        label: (<Link to="/news">News</Link>),
+        key: 'news',
+        icon: <BulbOutlined />,
+    },
+];
+
 function Navbar() {
     return (
         <div className="nav-container">
@@ -13,20 +36,7 @@ function Navbar() {
                     <Link to="/">CryptoMania</Link>
                 </Typography.Title>
             </div>
-            <Menu theme='dark'>
-                <Menu.Item icon={<HomeOutlined />}>
-                    <Link to="/">Home</Link>
-                </Menu.Item>
-                <Menu.Item icon={<FundOutlined />}>
-                    <Link to="/cryptocurrencies">Cryptocurrencies</Link>
-                </Menu.Item>
-                <Menu.Item icon={<MoneyCollectOutlined />}>
-                    <Link to="/exchanges">Exchanges</Link>
-                </Menu.Item>
-                <Menu.Item icon={<BulbOutlined />}>
-                    <Link to="/news">News</Link>
-                </Menu.Item>
-            </Menu>
+            <Menu theme='dark' items={items} />
         </div>
     );
 }
