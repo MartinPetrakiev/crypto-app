@@ -3,7 +3,7 @@ import millify from 'millify';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useGetCryptosQuery } from '../featueres/api/cryptoApi';
+import { useGetCryptosQuery } from '../features/api/cryptoApi';
 
 function Cryptocurrencies({ simplified }) {
     const countOfCoins = simplified ? 10 : 100;

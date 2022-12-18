@@ -2,8 +2,8 @@ import { Avatar, Card, Col, Option, Row, Select, Typography } from 'antd';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 
-import { useGetCryptosQuery } from '../featueres/api/cryptoApi';
-import { useGetCryptoNewsQuery } from '../featueres/api/cryptoNewsApi';
+import { useGetCryptosQuery } from '../features/api/cryptoApi';
+import { useGetCryptoNewsQuery } from '../features/api/cryptoNewsApi';
 
 function News({ simplified }) {
     const [newsCategory, setNewsCategory] = useState('Cryptocurrency');
