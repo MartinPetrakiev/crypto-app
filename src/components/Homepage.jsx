@@ -41,7 +41,7 @@ function Homepage() {
                 <Typography.Title level={2} className="home-title">Latest Crypto News</Typography.Title>
                 <Typography.Title level={3}><Link to="/news">Show more</Link></Typography.Title>
             </div>
-            <News />
+            <News simplified={true} />
         </>
     );
 }
