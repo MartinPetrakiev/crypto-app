@@ -14,7 +14,9 @@ export const cryptoApiSlice = createApi({
     }),
     endpoints: (builder) => ({
         getCryptos: builder.query({
-            query: () => '/coins'
+            query: (count) => {
+                return `/coins?limit=${count}`;
+            }
         })
     })
 });
