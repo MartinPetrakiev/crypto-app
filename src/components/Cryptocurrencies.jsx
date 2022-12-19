@@ -38,7 +38,7 @@ function Cryptocurrencies({ simplified }) {
                             <Link to={`/crypto/${currency.uuid}`}>
                                 <Card
                                     title={`${currency.rank}. ${currency.name}`}
-                                    extra={<img className="crypto-image" src={currency.iconUrl} alt="coin image"/>}
+                                    extra={<img className="crypto-image" src={currency.iconUrl} alt={currency.name}/>}
                                     hoverable
                                 >
                                     <p>Price: {currency.price} USD</p>
