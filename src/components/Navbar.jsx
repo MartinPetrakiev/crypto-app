@@ -1,6 +1,6 @@
 import { BulbOutlined, FundOutlined, HomeOutlined, MenuOutlined, MoneyCollectOutlined } from '@ant-design/icons';
 import { Avatar, Button, Menu, Typography } from 'antd';
-import React from 'react';
+import React, { useEffect, useReducer, useState } from 'react';
 import { Link } from 'react-router-dom';
 import icon from "../images/cryptocurrency.png";
 
@@ -27,7 +27,41 @@ const items = [
     },
 ];
 
+function reducer(state, action) {
+    switch (action.type) {
+      case 'show':
+        return true;
+      case 'hide':
+        return false;
+      default:
+        throw new Error();
+    }
+}
+
 function Navbar() {
+    const [activeMenu, dispatchActiveMenu] = useReducer(reducer, true);
+    const [screenSize, setScreenSize] = useState(null);
+
+    useEffect(() => {
+        const handleResize = () => setScreenSize(window.innerWidth)
+
+        window.addEventListener('resize', handleResize);
+        
+        handleResize()
+
+        return () => {
+            window.removeEventListener('resize', handleResize)
+        };
+    }, []);
+
+    useEffect(() => {
+        if (screenSize < 800) {
+            dispatchActiveMenu({type: 'hide'})
+        } else {
+            dispatchActiveMenu({type: 'show'})
+        }
+    }, [screenSize]);
+
     return (
         <div className="nav-container">
             <div className="logo-container">
@@ -35,8 +69,11 @@ function Navbar() {
                 <Typography.Title level={2} className="logo">
                     <Link to="/">CryptoMania</Link>
                 </Typography.Title>
+                <Button type="text" className="menu-control-container" onClick={() => dispatchActiveMenu(activeMenu ? {type: 'hide'} : {type: 'show'})}>
+                        <MenuOutlined />
+                </Button>
             </div>
-            <Menu theme='dark' items={items} />
+            {activeMenu && (<Menu theme="dark" items={items} />)}
         </div>
     );
 }

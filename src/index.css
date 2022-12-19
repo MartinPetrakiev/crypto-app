@@ -59,6 +59,10 @@ a:hover {
     width: 100%;
 }
 
+.logo-container button {
+    display: none;
+}
+
 .logo {
     margin: 0.5em 0 0 0.5em;
 }
@@ -92,6 +96,20 @@ a:hover {
         width: 100%;
         z-index: 100;
         background-color: var(--bgSecondary);
+    }
+
+    .logo-container button{
+        display: block;
+    }
+
+    .logo-container .anticon {
+        color: #fff;
+        font-size: 25px;
+    }
+
+    .logo-container {
+        display: flex;
+        justify-content: space-between;
     }
 
     .menu-control-container {
