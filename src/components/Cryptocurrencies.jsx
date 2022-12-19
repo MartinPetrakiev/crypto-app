@@ -1,4 +1,4 @@
-import { Card, Col, Input, Row } from 'antd';
+import { Card, Col, Input, Row, Spin } from 'antd';
 import millify from 'millify';
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -20,7 +20,7 @@ function Cryptocurrencies({ simplified }) {
     }, [cryptosList, searchTerm]);
 
     if (isFetching) {
-        return 'Loading...';
+        return (<div className="loader"><Spin size="large"/></div>);
     } else if (isError) {
         console.log(error);
         return 'ERROR';

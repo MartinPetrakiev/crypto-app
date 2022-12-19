@@ -1,4 +1,4 @@
-import { Col, Row, Statistic, Typography } from 'antd';
+import { Col, Row, Statistic, Typography, Spin } from 'antd';
 import millify from 'millify';
 import React from 'react';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,7 @@ function Homepage() {
     const globalStats = dataFetched?.data?.stats;
 
     if (isFetching) {
-        return 'Loading...';
+        return (<div className="loader"><Spin size="large"/></div>);
     } else if (isError) {
         console.log(error);
         return 'ERROR';

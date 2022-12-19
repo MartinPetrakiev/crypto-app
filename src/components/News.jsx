@@ -1,4 +1,4 @@
-import { Avatar, Card, Col, Row, Select, Typography } from 'antd';
+import { Avatar, Card, Col, Row, Select, Typography, Spin } from 'antd';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 
@@ -18,7 +18,7 @@ function News({ simplified }) {
     const demoImage = "https://www.bing.com/th?id=OVFT.mpzuVZnv8dwIMRfQGPbOPC&pid=News";
 
     if (isFetching) {
-        return 'Loading...';
+        return (<div className="loader"><Spin size="large"/></div>);
     } else if (isError) {
         console.log(error);
         return 'ERROR';
