@@ -1,4 +1,4 @@
-import { Avatar, Card, Col, Option, Row, Select, Typography } from 'antd';
+import { Avatar, Card, Col, Row, Select, Typography } from 'antd';
 import moment from 'moment';
 import React, { useEffect, useState } from 'react';
 

@@ -1,14 +1,14 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 
-const baseUrl = 'https://coinranking1.p.rapidapi.com';
+const baseUrl = process.env.REACT_APP_CRYPTO_API_URL;
 
 export const cryptoApiSlice = createApi({
     reducerPath: 'cryptoApi',
     baseQuery: fetchBaseQuery({
         baseUrl,
         prepareHeaders: (headers) => {
-            headers.set('X-RapidAPI-Key', '10dbc9f8c7msh6744ea8363ff946p1e23dejsn664f2f043285');
-            headers.set('X-RapidAPI-Host', 'coinranking1.p.rapidapi.com',);
+            headers.set('X-RapidAPI-Key', process.env.REACT_APP_RAPIDAPI_KEY);
+            headers.set('X-RapidAPI-Host', process.env.REACT_APP_CRYPTO_RAPIDAPI_HOST);
             return headers;
         }
     }),
@@ -25,7 +25,7 @@ export const cryptoApiSlice = createApi({
         }),
         getCryptoHistory: builder.query({
             query: ({ coinId, timeperiod }) => {
-                return `coin/${coinId}/history?timeperiod=${timeperiod}`;
+                return `coin/${coinId}/history?timePeriod=${timeperiod}`;
             },
         }),
 
